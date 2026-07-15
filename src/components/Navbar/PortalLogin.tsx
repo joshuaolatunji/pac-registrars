@@ -16,10 +16,15 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import { ChevronDown } from 'lucide-react';
+
 export function PortalLogin() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button  className="w-auto h-auto bg-black text-white">PACR Portal Login</Button>} />
+      <DropdownMenuTrigger render={<Button  className="w-auto h-8 bg-black text-white">
+        PACR Portal Login
+        <ChevronDown />
+        </Button>} />
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />

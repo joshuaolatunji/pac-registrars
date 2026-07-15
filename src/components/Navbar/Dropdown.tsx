@@ -18,14 +18,26 @@ import {
 
 import { ChevronDown } from 'lucide-react';
 
+import {useState} from "react";
+
+
 
 
 export function DropdownMenuIcons() {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   return (
-    <div className=" flex gap-3 items-center">   
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" className="w-auto h-auto">About Us</Button>} />
-      <ChevronDown />
+    <div className=" flex gap-3 items-center">
+  
+    <DropdownMenu open={openMenu === "about"} onOpenChange={(open) => setOpenMenu(open ? "about" : null)}>
+
+       <div
+    onMouseEnter={() => setOpenMenu("about")}
+    onMouseLeave={() => setOpenMenu(null)}
+    >
+      <DropdownMenuTrigger render={<Button variant="ghost" className="w-auto h-auto">
+        About Us
+        <ChevronDown />
+      </Button>} />
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />
@@ -45,10 +57,18 @@ export function DropdownMenuIcons() {
           Clients
         </DropdownMenuItem>
       </DropdownMenuContent>
+      </div>
     </DropdownMenu>
 
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">Services</Button>} />
+    <DropdownMenu open={openMenu === "Services"} onOpenChange={(open) => setOpenMenu(open ? "services" : null)}>
+         <div
+    onMouseEnter={() => setOpenMenu("Services")}
+    onMouseLeave={() => setOpenMenu(null)}
+    >
+      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">
+        Services
+        <ChevronDown />
+        </Button>} />
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />
@@ -80,22 +100,38 @@ export function DropdownMenuIcons() {
             Electronic Repository System
         </DropdownMenuItem>
       </DropdownMenuContent>
+      </div>
     </DropdownMenu>
 
 
-     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">Product</Button>} />
+     <DropdownMenu open={openMenu === "Product"} onOpenChange={(open) => setOpenMenu(open ? "Product" : null)}>
+         <div
+    onMouseEnter={() => setOpenMenu("Product")}
+    onMouseLeave={() => setOpenMenu(null)}
+    >
+      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">
+        Product
+        <ChevronDown />
+        </Button>} />
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />
           ProptyPlus
         </DropdownMenuItem>
       </DropdownMenuContent>
+       </div>
     </DropdownMenu>
 
 
-    <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">Resources</Button>} />
+    <DropdownMenu open={openMenu === "Resources"} onOpenChange={(open) => setOpenMenu(open ? "Resources" : null)}>
+         <div
+    onMouseEnter={() => setOpenMenu("Resources")}
+    onMouseLeave={() => setOpenMenu(null)}
+    >
+      <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">
+        Resources
+        <ChevronDown />
+        </Button>} />
       <DropdownMenuContent>
         <DropdownMenuItem>
           <UserIcon />
@@ -115,14 +151,13 @@ export function DropdownMenuIcons() {
             Media
         </DropdownMenuItem>
       </DropdownMenuContent>
+      </div>
     </DropdownMenu>
-
 
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline" className="w-fit h-auto">Contact Us</Button>} />
     </DropdownMenu>
-    
-    </div>
+      </div>  
     
   )
 }
