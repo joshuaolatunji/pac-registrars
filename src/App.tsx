@@ -10,8 +10,8 @@ function App() {
     <>
       <div>
         <Nav />
-        <HeroCarousel />
-        <About />
+        {/* <HeroCarousel /> */}
+        {/* <About /> */}
       </div>
     </>
   )
