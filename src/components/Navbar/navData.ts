@@ -1,4 +1,16 @@
-import type {NavItem} from "./types"
+export interface NavItem {
+    title: string;
+    href?: string;
+    dropdown?: DropdownItem[];
+    isCta?: boolean;
+    triggerStyle?: "portallogin";
+    icon?: string;
+}
+
+export interface DropdownItem {
+    title: string;
+    href: string;
+}
 
 export const navItems: NavItem[] = [
     {
@@ -115,9 +127,42 @@ export const navItems: NavItem[] = [
 
     {
         title:"Contact Us",
-        href: "#"
-    }
+        href: "#",
+    },
 
+    {
+        title:"EDMMS",
+        href: "#",
+        isCta: true,
+    },
 
+    {
+        title: "PACR Portal Login",
+        isCta: true,
+        triggerStyle:"portallogin",
+        dropdown: [
+
+             {
+                title: "Shareholders",
+                href: "#",
+                // icon:
+            },
+            {
+                title: "Brokers",
+                href: "#",
+                // icon:
+            },
+            {
+                title: "Clients",
+                href: "#",
+                // icon:
+            },
+            {
+                title: "Fund Manager API",
+                href: "#",
+                // icon:
+            }, 
+        ]
+    },
 
 ]
